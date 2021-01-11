@@ -1,0 +1,44 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# MHI bus
+#
+# Copyright (c) 2018-2020, The Linux Foundation. All rights reserved.
+#
+
+config MHI_BUS
+	tristate "Modem Host Interface (MHI) bus"
+	help
+	  Bus driver for MHI protocol. Modem Host Interface (MHI) is a
+	  communication protocol used by the host processors to control
+	  and communicate with modem devices over a high speed peripheral
+	  bus or shared memory.
+
+config MHI_BUS_DEBUG
+	bool "Debugfs support for the MHI bus"
+	depends on MHI_BUS && DEBUG_FS
+	help
+	  Enable debugfs support for use with the MHI transport. Allows
+	  reading and/or modifying some values within the MHI controller
+	  for debug and test purposes.
+
+config MHI_BUS_PCI_GENERIC
+	tristate "MHI PCI controller driver"
+	depends on MHI_BUS
+	depends on PCI
+	help
+	  This driver provides MHI PCI controller driver for devices such as
+	  Qualcomm SDX55 based PCIe modems.
+
+config MHI_UCI
+	tristate "MHI UCI"
+	depends on MHI_BUS
+	help
+	  MHI based Userspace Client Interface (UCI) driver is used for
+	  transferring raw data between host and device using standard file
+	  operations from userspace. Open, read, write, poll and close
+	  operations are supported by this driver. Please check
+	  mhi_uci_match_table for all supported channels that are exposed to
+	  userspace.
+
+	  To compile this driver as a module, choose M here: the module will be
+	  called mhi_uci.
