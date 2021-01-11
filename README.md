@@ -10,7 +10,7 @@ contained here are:
 
 * All MHI bus changes from the `mhi-next` repo (per 08/01/2021).
 * Version 18 of the "userspace MHI client interface driver" patch series.
-* `mhi\_net.c` (the network interface driver) from `net-next` (per 08/01/2021).
+* `mhi_net.c` (the network interface driver) from `net-next` (per 08/01/2021).
 
 The repo is structured as follows:
 * `drivers/bus/mhi`: Contains the code (backported) for the MHI bus and UCI.
